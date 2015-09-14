@@ -1,0 +1,44 @@
+@mixin box-sizing($box-size) {
+	-webkit-box-sizing: $box-size;
+	-moz-box-sizing: $box-size;
+	box-sizing: $box-size;
+}
+
+@mixin spacing-reset {
+	padding: 0;
+	margin: 0;
+}
+
+@mixin font-settings($font-size: 16px, $text-decor: none, $text-color: #000) {
+	font-size: $font-size;
+  	font-family: 'Lato', sans-serif;
+  	text-decoration: $text-decor;
+  	color: $text-color;
+}
+
+@mixin box-shadow($x-offset: 0px, $y-offset: 0px, $blur: 0px, $shadow-opacity: 0) {
+	-webkit-box-shadow: $x-offset $y-offset $blur 0px rgba(0, 0, 0, $shadow-opacity);
+  	box-shadow: $x-offset $y-offset $blur 0px rgba(0, 0, 0, $shadow-opacity);
+}
+
+@mixin form-reset($appearance: none, $shadow: none, $outline: none, $border: none) {
+	appearance: $appearance;
+  	box-shadow: $shadow;
+  	outline: $outline;
+  	border: $border;
+}
+
+@mixin nav-overflow {
+	overflow-x: hidden;
+  	overflow-y: auto;
+}
+
+@mixin btn-primary ($border-radius: 4px) {
+  border-radius: $border-radius;
+  background: $highlightColor;
+  color: #fff;
+  &:hover {
+  	background: lighten($highlightColor, 10%);
+  	text-decoration: none;
+  }
+}

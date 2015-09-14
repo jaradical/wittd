@@ -1,0 +1,466 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+/* ==========================================================================
+   Colors
+   ========================================================================== */
+
+@import "colors";
+
+/* ==========================================================================
+   HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/
+   ========================================================================== */
+
+@import "hb5boilerplate";
+
+/* ==========================================================================
+   Mixins
+   ========================================================================== */
+
+@import "mixins";  
+
+
+/* ===== Initializr Styles ==================================================
+   
+   ========================================================================== */
+
+html {
+  overflow-y: scroll;
+  background: $bgColor;
+}
+
+div, section, nav, input, button {
+  @include box-sizing(border-box);
+}
+
+body {
+  @include spacing-reset;
+  overflow-x: hidden;
+  @include font-settings($font-size: 16px);
+}
+
+header {
+  @include box-sizing(border-box);
+  display: flex;
+  position: fixed;
+  background-color: white;
+  width: 100%;
+  height: 50px;
+  z-index: 1;
+  @include box-shadow(0px, 3px, 7px, 0.15);
+}
+
+#content {
+  background-color: $bgColor;
+  padding: 0 0 0 0;
+  position: relative;
+  width: auto;
+  height: 100%;
+  @include box-shadow(10px, 0px, 9px, 0.4);
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.nav-col-1 {
+  flex: 1 0;
+  padding: 10px;
+}
+
+.nav-col-2 {
+  flex: 0 0 40px;
+  padding: 10px;
+}
+
+.logo-url {
+  @include font-settings($font-size: 1.4em, $text-color: $highlightColor);
+}
+
+.hamburger {
+  float: right;
+  height: 40px;
+  position: relative;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger div {
+  background-color: $highlightColor;
+  height: 2px;
+  border-radius: 4px;
+  margin-top: 6px;
+  width: 95%;
+}
+
+.mobile-nav {
+  opacity: 0;
+  right: 0px;
+  top: 0px;
+  position: fixed;
+  z-index: 0;
+  width: 70%;
+  height: 100%;
+  @include nav-overflow;
+  background: url('/img/bgPattern.png') repeat;
+}
+
+.mobile-nav a {
+  @include font-settings($text-color: #fff);
+  display: block;
+  position: relative;
+  width: 100%;
+  padding: 15px 15px 15px 30px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: lighten($darkGrey, 20%);
+  }
+}
+
+#contentLayer {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: 0;
+  width: 30%;
+  height: 100%;
+  @include nav-overflow;
+  background-color: rgba(0,0,0,0.0);
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.hero-banner {
+  position: relative;
+  width: 100%;
+  min-height: 450px;
+  overflow: hidden;
+}
+
+.hero-banner img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  min-width: 100%;
+  height: 100%;
+}
+
+.hero-message {
+  position: relative;
+  width: 100%;
+  margin: 150px auto 30px auto;
+  text-align: center;
+}
+
+h2 {
+  @include font-settings($text-color: white, $font-size: 1.7em);
+  font-weight: 700;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+  text-shadow: 1px 1px rgba(0,0,0,0.15);
+}
+
+h4 {
+  @include font-settings($text-color: white, $font-size: 1.1em);
+  font-weight: 700;
+  text-rendering: optimizeLegibility;
+  text-shadow: 1px 1px rgba(0,0,0,0.15);
+  width: 95%;
+  margin: 0 auto;
+}
+
+.hero-search-container {
+  width: 100%;
+  padding: 0 0;
+}
+
+.search {
+  @include spacing-reset;
+  position: relative;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.mobile-search {
+  width: 100%;
+}
+
+.search .form-span {
+  display: inline-block;
+  width: 85%;
+}
+
+.search input[type="text"] {
+  width: 100%;
+  text-indent: 10px;
+  height: 40px;
+  padding: 5px;
+  background-color: white;
+  border-radius: 4px 0 0 4px;
+  @include form-reset;
+}
+
+::-webkit-input-placeholder {
+  color: lighten($darkGrey, 30%);
+}
+
+.hero-search-form .ion-ios-search {
+  color: white;
+  font-size: 22px;
+}
+
+.hero-categories {
+  display: none;
+}
+
+.hero-search-form .btn-primary {
+  display: inline-block;
+  height: 40px;
+  border: none;
+  margin-left: -3px;
+  padding: 0 10px;
+  width: 14%;
+  vertical-align: top;
+  @include btn-primary($border-radius: 0 4px 4px 0);
+}
+
+.ui-menu-item {
+  color: gray;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 10px;
+  cursor: pointer;
+  background: white;
+  width: 84.5%;
+  overflow-x: hidden;
+  @include box-shadow($x-offset: 0px, $y-offset: 2px, $blur: 5px, $shadow-opacity: 0.15);
+}
+
+.ui-state-focus {
+  background-color: $highlightColor;
+  color: white;
+}
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+
+
+
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media only screen and (min-width: 1140px) {
+
+  header {
+    height: 70px;
+    background: rgba(0,0,0,0);
+    @include box-shadow($shadow-opacity: 0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .sticky-nav {
+    background: white;
+    @include box-shadow($y-offset: 2px, $blur: 5px, $shadow-opacity: 0.15);
+  }
+
+  .container {
+    width: 1024px;
+    margin: 0 auto;
+  }
+
+  .nav-col-1 {
+    flex: 1 0;
+  }
+
+  .nav-col-2 {
+    flex: 2 0;
+  }
+
+  .nav-col-3 {
+    flex: 2 0;
+  }
+
+  .logo-url {
+    @include font-settings($font-size: 1.7em, $text-color: white);  
+    padding: 10px 15px;
+  }
+
+  .highlight-color {
+    color: $highlightColor;
+  }
+
+  .secondary-color {
+    color: $darkGrey;
+  }
+
+  nav {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+  }
+
+  nav a {
+    display: inline-block;
+    position: relative;
+    width: auto;
+    text-align: center;
+    border-radius: 4px;
+    padding: 24px 15px;
+    margin: 0 5px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background: rgba(0,0,0,0.15);
+      border-radius: 4px;
+      padding: 8px 15px;
+    }
+    &:last-of-type {
+      @include btn-primary;
+      padding: 8px 15px;
+      margin-right: 15px;
+    }
+  }
+
+  .hero-banner {
+    height: 600px;
+  }
+
+  .hero-banner img {
+    min-height: 100%;
+    max-height: 600px;
+  }
+
+  h2 {
+    @include font-settings($text-color: white, $font-size: 3em);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px rgba(0,0,0,0.15);
+  }
+
+  h4 {
+    @include font-settings($text-color: white, $font-size: 2em);
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    text-shadow: 1px 1px rgba(0,0,0,0.15);
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .hero-search-container {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    height: 140px;
+    width: 100%;
+    padding: 40px 0;
+  }
+
+  .hero-search-form {
+    width: 960px;
+    margin: 0 auto;
+  }
+
+  .search .form-span {
+    display: inline-block;
+    width: 50%;
+    border-radius: none;
+  }
+
+  .search input[type="text"] {
+    border-radius: none;
+    width: 100%;
+    height: 60px;
+    background: white;
+  }
+
+  .ui-menu-item {
+    color: gray;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+    background: white;
+    width: 50%;
+    overflow-x: hidden;
+    @include box-shadow($x-offset: 0px, $y-offset: 2px, $blur: 5px, $shadow-opacity: 0.15);
+  }
+
+  .ui-state-focus {
+    background-color: $highlightColor;
+    color: white;
+  }
+
+  .hero-categories {
+    display: inline-block;
+    width: 30%;
+    height: 60px;
+    background: white;
+    text-indent: 10px;
+    padding: 5px;
+    font-size: 16px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0;
+    -webkit-appearance: none;
+    margin: 0 -3px;
+    border-left: 1px solid #ccc;
+  }
+
+  .hero-search-form .btn-primary {
+    display: inline-block;
+    height: 60px;
+    border: none;
+    margin-left: -3px;
+    padding: 0 10px;
+    width: 14%;
+    vertical-align: top;
+    @include btn-primary($border-radius: 0 4px 4px 0);
+  }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+}
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+.hide {
+  display: none;
+}
+
+@import "helperClasses";
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@import "printStyles";
+
+
+
+
+
+
+
+
